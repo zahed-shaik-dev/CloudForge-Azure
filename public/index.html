@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CloudOps TaskHub - interactive Node.js Azure DevOps application"
+    />
+    <title>CloudForge | Azure Cloud </title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+     <div class="logo-container">
+  <div class="cloud-logo">☁</div>
+
+  <div class="logo">
+    CloudForge<span></span>
+  </div>
+</div>
+
+<div class="nav-links">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#pipeline">Pipeline</a>
+  <a href="#tasks">Tasks</a>
+  <a href="#contact">Contact</a>
+
+  <button
+    id="theme-toggle"
+    class="theme-toggle"
+    aria-label="Toggle dark mode"
+    title="Toggle dark mode"
+  >
+    🌙
+  </button>
+</div>
+    </nav>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <p class="tagline">AZURE DEVOPS • CLOUD • AUTOMATION</p>
+          <h1>From Code to Cloud <span>Operations</span></h1>
+          <p class="description">
+            A responsive Node.js operations dashboard built to demonstrate cloud
+            deployment, CI/CD automation, API health checks and production
+            monitoring concepts.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#tasks">Open TaskHub</a
+            ><a class="btn secondary" href="#pipeline">View Pipeline</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="terminal-header">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="terminal">
+            <p>$ npm start</p>
+            <p class="green">✓ Node.js server started</p>
+            <p>→ REST API: /api/tasks</p>
+            <p>→ Health: /api/health</p>
+            <p class="success">✓ Ready for Azure App Service</p>
+          </div>
+        </div>
+      </section>
+      <section class="about" id="about">
+        <p class="section-label">PLATFORM</p>
+        <h2>Cloud <span>Operations</span></h2>
+        <p class="section-description">
+          Manage application tasks through a simple interactive interface while
+          learning the same deployment lifecycle used in cloud engineering
+          environments.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">☁️</div>
+            <h3>Azure Ready</h3>
+            <p>
+              Designed for Azure App Service and production-style deployment
+              workflows.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">⚙️</div>
+            <h3>Automation</h3>
+            <p>
+              Prepared for GitHub Actions CI/CD, automated tests and deployment.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Observability</h3>
+            <p>
+              Health endpoints and monitoring concepts for reliable cloud
+              operations.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>Responsive</h3>
+            <p>
+              Interactive layout adapts across desktop, tablet and mobile
+              devices.
+            </p>
+          </article>
+        </div>
+      </section>
+      <<section class="services" id="services">
+  <p class="section-label">SERVICES</p>
+
+  <h2>Application <span>Capabilities</span></h2>
+
+  <p class="section-description">
+    Explore the cloud, backend and frontend capabilities powering CloudForge.
+    Click any capability to view its technical implementation.
+  </p>
+
+  <div class="cards capability-cards">
+
+    <article
+      class="card capability-card"
+      data-capability="deployments"
+      tabindex="0"
+      role="button"
+      aria-label="Open Azure Deployments"
+    >
+      <div class="icon">🚀</div>
+
+      <h3>Deployments</h3>
+
+      <p>
+        Azure App Service, AKS, Docker, Azure Container Registry and
+        automated CI/CD deployment workflows.
+      </p>
+
+      <span class="capability-link">
+        Explore deployment →
+      </span>
+    </article>
+
+
+    <article
+      class="card capability-card"
+      data-capability="health"
+      tabindex="0"
+      role="button"
+      aria-label="Open Health Checks"
+    >
+      <div class="icon">❤️</div>
+
+      <h3>Health Checks</h3>
+
+      <p>
+        Application health endpoints, Kubernetes probes, availability
+        monitoring and Azure health verification.
+      </p>
+
+      <span class="capability-link">
+        Explore health checks →
+      </span>
+    </article>
+
+
+    <article
+      class="card capability-card"
+      data-capability="api"
+      tabindex="0"
+      role="button"
+      aria-label="Open API Layer"
+    >
+      <div class="icon">🔐</div>
+
+      <h3>API Layer</h3>
+
+      <p>
+        Express REST APIs connecting the CloudForge frontend with the
+        Node.js backend and task services.
+      </p>
+
+      <span class="capability-link">
+        Explore API layer →
+      </span>
+    </article>
+
+
+    <article
+      class="card capability-card"
+      data-capability="ui"
+      tabindex="0"
+      role="button"
+      aria-label="Open Fast UI"
+    >
+      <div class="icon">⚡</div>
+
+      <h3>Fast UI</h3>
+
+      <p>
+        Lightweight JavaScript, responsive design, dynamic rendering and
+        interactive frontend experiences.
+      </p>
+
+      <span class="capability-link">
+        Explore frontend →
+      </span>
+    </article>
+
+
+    <article
+      class="card capability-card"
+      data-capability="observability"
+      tabindex="0"
+      role="button"
+      aria-label="Open Observability"
+    >
+      <div class="icon">📊</div>
+
+      <h3>Observability</h3>
+
+      <p>
+        Azure Monitor, Application Insights, application logs, metrics,
+        alerts and cloud infrastructure visibility.
+      </p>
+
+      <span class="capability-link">
+        Explore monitoring →
+      </span>
+    </article>
+
+  </div>
+
+
+  <!-- CAPABILITY DETAIL PANEL -->
+
+  <div
+    id="capability-panel"
+    class="capability-panel"
+    aria-hidden="true"
+  >
+
+    <div class="capability-panel-content">
+
+      <button
+        id="capability-close"
+        class="capability-close"
+        type="button"
+        aria-label="Close capability details"
+      >
+        ✕
+      </button>
+
+      <div class="capability-panel-header">
+
+        <div
+          id="capability-icon"
+          class="capability-panel-icon"
+        >
+          🚀
+        </div>
+
+        <div>
+          <p class="section-label">
+            CLOUDFORGE CAPABILITY
+          </p>
+
+          <h3 id="capability-title">
+            Azure Deployments
+          </h3>
+
+          <p id="capability-summary">
+            Cloud deployment capabilities.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div
+        id="capability-technologies"
+        class="capability-technologies"
+      ></div>
+
+
+      <div
+        id="capability-sections"
+        class="capability-detail-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+      <section class="pipeline" id="pipeline">
+        <p class="section-label">DELIVERY</p>
+        <h2>DevOps <span>Pipeline</span></h2>
+        <p class="section-description">
+          A production-style path from source code to a monitored Azure
+          application.
+        </p>
+        <div class="pipeline-container">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Code</h3>
+            <p>GitHub source control</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Build</h3>
+            <p>Node.js validation</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Deploy</h3>
+            <p>Azure App Service</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="step">
+            <div class="step-number">04</div>
+            <h3>Monitor</h3>
+            <p>Insights &amp; health</p>
+          </div>
+        </div>
+      </section>
+      <section class="task-section" id="tasks">
+        <p class="section-label">INTERACTIVE DEMO</p>
+        <h2>CloudOps <span>TaskHub</span></h2>
+        <p class="section-description">
+          Create, complete, filter and delete tasks using the live Node.js REST
+          API.
+        </p>
+        <div class="task-panel">
+          <form id="task-form" class="task-form">
+            <input
+              id="task-input"
+              type="text"
+              placeholder="Add an operations task..."
+              maxlength="100"
+              required
+            /><button class="btn primary" type="submit">Add Task</button>
+          </form>
+          <div class="task-toolbar">
+            <div class="filters">
+              <button class="filter active" data-filter="all">All</button
+              ><button class="filter" data-filter="active">Active</button
+              ><button class="filter" data-filter="completed">Completed</button>
+            </div>
+            <button id="health-btn" class="health-btn">Check API</button>
+          </div>
+          <div id="health-status" class="health-status">
+            API status: not checked
+          </div>
+          <div id="task-list" class="task-list"></div>
+        </div>
+      </section>
+      <section class="contact" id="contact">
+        <p class="section-label">CLOUD READY</p>
+        <h2>Deploy to <span>Azure</span></h2>
+        <p>
+          This application is ready for the next stages: Azure App Service, DNS,
+          HTTPS, CI/CD and monitoring.
+        </p>
+        <a class="btn primary" href="#home">Back to Top</a>
+      </section>
+    </main>
+    <footer>
+      <span>CloudOps TaskHub</span><span>Node.js • Express • Azure DevOps</span>
+    </footer>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
