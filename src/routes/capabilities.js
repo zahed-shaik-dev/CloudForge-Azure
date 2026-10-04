@@ -15,7 +15,7 @@ const capabilities = [
       "Azure Kubernetes Service",
       "Docker",
       "Azure Container Registry",
-      "GitHub Actions"
+      "GitHub Actions",
     ],
 
     sections: [
@@ -28,8 +28,8 @@ const capabilities = [
           "Production environment configuration",
           "Application health endpoint",
           "Environment variables",
-          "Application logs"
-        ]
+          "Application logs",
+        ],
       },
 
       {
@@ -43,8 +43,8 @@ const capabilities = [
           "Rolling updates",
           "Liveness probes",
           "Readiness probes",
-          "Horizontal scaling"
-        ]
+          "Horizontal scaling",
+        ],
       },
 
       {
@@ -57,25 +57,24 @@ const capabilities = [
           "Docker image build",
           "Azure Container Registry",
           "Deployment automation",
-          "Post-deployment health verification"
-        ]
-      }
-    ]
+          "Post-deployment health verification",
+        ],
+      },
+    ],
   },
 
   {
     id: "health",
     title: "Health Checks",
     icon: "❤️",
-    summary:
-      "Application health monitoring and service availability checks.",
+    summary: "Application health monitoring and service availability checks.",
 
     technologies: [
       "Node.js",
       "Express.js",
       "Azure Monitor",
       "Application Insights",
-      "Kubernetes Probes"
+      "Kubernetes Probes",
     ],
 
     sections: [
@@ -88,8 +87,8 @@ const capabilities = [
           "HTTP status verification",
           "Application status",
           "Environment information",
-          "Timestamp reporting"
-        ]
+          "Timestamp reporting",
+        ],
       },
 
       {
@@ -100,8 +99,8 @@ const capabilities = [
           "Liveness probes",
           "Readiness probes",
           "Container restart detection",
-          "Service availability"
-        ]
+          "Service availability",
+        ],
       },
 
       {
@@ -113,10 +112,10 @@ const capabilities = [
           "Response time",
           "Failed requests",
           "Application logs",
-          "Monitoring alerts"
-        ]
-      }
-    ]
+          "Monitoring alerts",
+        ],
+      },
+    ],
   },
 
   {
@@ -126,13 +125,7 @@ const capabilities = [
     summary:
       "REST API architecture connecting the frontend with the Node.js backend.",
 
-    technologies: [
-      "Node.js",
-      "Express.js",
-      "REST API",
-      "JSON",
-      "HTTP"
-    ],
+    technologies: ["Node.js", "Express.js", "REST API", "JSON", "HTTP"],
 
     sections: [
       {
@@ -143,8 +136,8 @@ const capabilities = [
           "GET /api/tasks",
           "POST /api/tasks",
           "PATCH /api/tasks/:id",
-          "DELETE /api/tasks/:id"
-        ]
+          "DELETE /api/tasks/:id",
+        ],
       },
 
       {
@@ -156,8 +149,8 @@ const capabilities = [
           "JSON request bodies",
           "Input validation",
           "HTTP status codes",
-          "JSON responses"
-        ]
+          "JSON responses",
+        ],
       },
 
       {
@@ -168,10 +161,10 @@ const capabilities = [
           "Express routing",
           "Route separation",
           "API error handling",
-          "Frontend/backend communication"
-        ]
-      }
-    ]
+          "Frontend/backend communication",
+        ],
+      },
+    ],
   },
 
   {
@@ -186,7 +179,7 @@ const capabilities = [
       "CSS3",
       "Vanilla JavaScript",
       "Responsive Design",
-      "REST APIs"
+      "REST APIs",
     ],
 
     sections: [
@@ -199,8 +192,8 @@ const capabilities = [
           "Task filtering",
           "Create task interaction",
           "Complete task interaction",
-          "Delete task interaction"
-        ]
+          "Delete task interaction",
+        ],
       },
 
       {
@@ -212,23 +205,22 @@ const capabilities = [
           "Flexible layouts",
           "Mobile task controls",
           "Responsive cards",
-          "Adaptive pipeline layout"
-        ]
+          "Adaptive pipeline layout",
+        ],
       },
 
       {
         title: "User Experience",
-        description:
-          "Frontend interactions provide immediate visual feedback.",
+        description: "Frontend interactions provide immediate visual feedback.",
         items: [
           "Dark/light mode",
           "Hover interactions",
           "Animated components",
           "API status feedback",
-          "Smooth navigation"
-        ]
-      }
-    ]
+          "Smooth navigation",
+        ],
+      },
+    ],
   },
 
   {
@@ -243,7 +235,7 @@ const capabilities = [
       "Application Insights",
       "Application Logs",
       "Prometheus",
-      "Grafana"
+      "Grafana",
     ],
 
     sections: [
@@ -255,8 +247,8 @@ const capabilities = [
           "Request monitoring",
           "Response times",
           "Error tracking",
-          "Availability monitoring"
-        ]
+          "Availability monitoring",
+        ],
       },
 
       {
@@ -268,8 +260,8 @@ const capabilities = [
           "Memory utilization",
           "Container health",
           "Pod status",
-          "Service availability"
-        ]
+          "Service availability",
+        ],
       },
 
       {
@@ -280,11 +272,11 @@ const capabilities = [
           "Application failures",
           "High resource utilization",
           "Availability issues",
-          "Health check failures"
-        ]
-      }
-    ]
-  }
+          "Health check failures",
+        ],
+      },
+    ],
+  },
 ];
 
 router.get("/", (_req, res) => {
@@ -292,13 +284,11 @@ router.get("/", (_req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  const capability = capabilities.find(
-    item => item.id === req.params.id
-  );
+  const capability = capabilities.find((item) => item.id === req.params.id);
 
   if (!capability) {
     return res.status(404).json({
-      error: "Capability not found"
+      error: "Capability not found",
     });
   }
 

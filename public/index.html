@@ -2,374 +2,1257 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
     <meta
       name="description"
-      content="CloudOps TaskHub - interactive Node.js Azure DevOps application"
+      content="CloudForge — an interactive cloud engineering platform demonstrating Node.js, Azure, CI/CD, infrastructure automation and operational workflows."
     />
-    <title>CloudForge | Azure Cloud </title>
-    <link rel="stylesheet" href="/css/style.css" />
+
+    <meta
+      name="theme-color"
+      content="#080b10"
+    />
+
+    <title>CloudForge | Cloud Engineering Platform</title>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/css/style.css"
+    />
+
+    <script
+      src="/js/app.js"
+      defer
+    ></script>
   </head>
+
   <body>
-    <nav class="navbar">
-     <div class="logo-container">
-  <div class="cloud-logo">☁</div>
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
 
-  <div class="logo">
-    CloudForge<span></span>
-  </div>
-</div>
+    <nav
+      class="cf-navbar"
+      id="navbar"
+      aria-label="Primary navigation"
+    >
+      <div class="cf-nav-inner">
+        <a href="#home" class="cf-brand" aria-label="CloudForge home">
+  <span class="cf-brand-mark" aria-hidden="true">
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.5 24.5H23C26.314 24.5 29 21.814 29 18.5C29 15.374 26.61 12.806 23.558 12.52C22.477 8.795 19.044 6 15 6C10.582 6 7 9.582 7 14C7 14.17 7.006 14.339 7.017 14.507C4.175 15.153 2 17.747 2 20.5C2 23.814 4.686 26.5 8 26.5H9.5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M13 19L16 16L19 19M16 16V23"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </span>
 
-<div class="nav-links">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#pipeline">Pipeline</a>
-  <a href="#tasks">Tasks</a>
-  <a href="#contact">Contact</a>
+  <span class="cf-brand-text">
+    <strong>CloudForge</strong>
+    <small>Cloud Engineering</small>
+  </span>
+</a>
 
-  <button
-    id="theme-toggle"
-    class="theme-toggle"
-    aria-label="Toggle dark mode"
-    title="Toggle dark mode"
-  >
-    🌙
-  </button>
-</div>
-    </nav>
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-content">
-          <p class="tagline">AZURE DEVOPS • CLOUD • AUTOMATION</p>
-          <h1>From Code to Cloud <span>Operations</span></h1>
-          <p class="description">
-            A responsive Node.js operations dashboard built to demonstrate cloud
-            deployment, CI/CD automation, API health checks and production
-            monitoring concepts.
-          </p>
-          <div class="buttons">
-            <a class="btn primary" href="#tasks">Open TaskHub</a
-            ><a class="btn secondary" href="#pipeline">View Pipeline</a>
+        <div class="cf-nav-links">
+          <a
+            href="#home"
+            class="cf-nav-link active"
+            data-section="home"
+          >
+            Overview
+          </a>
+
+          <a
+            href="#services"
+            class="cf-nav-link"
+            data-section="services"
+          >
+            Services
+          </a>
+
+          <a
+            href="#pipeline"
+            class="cf-nav-link"
+            data-section="pipeline"
+          >
+            Pipeline
+          </a>
+
+          <a
+            href="#tasks"
+            class="cf-nav-link"
+            data-section="tasks"
+          >
+            Tasks
+          </a>
+
+          <a
+            href="#contact"
+            class="cf-nav-link"
+            data-section="contact"
+          >
+            Contact
+          </a>
+        </div>
+
+        <div class="cf-nav-actions">
+          <div
+            class="cf-system-status"
+            title="CloudForge system status"
+          >
+            <span class="cf-status-dot"></span>
+            <span>Operational</span>
           </div>
+
+          <button
+            class="cf-theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch to light mode"
+            title="Switch to light mode"
+          >
+            <span
+              class="cf-theme-icon"
+              aria-hidden="true"
+            >
+              ☾
+            </span>
+          </button>
+
+          <button
+            class="cf-mobile-toggle"
+            id="mobileNavToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileNavMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <div class="hero-card">
-          <div class="terminal-header">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="terminal">
-            <p>$ npm start</p>
-            <p class="green">✓ Node.js server started</p>
-            <p>→ REST API: /api/tasks</p>
-            <p>→ Health: /api/health</p>
-            <p class="success">✓ Ready for Azure App Service</p>
-          </div>
-        </div>
-      </section>
-      <section class="about" id="about">
-        <p class="section-label">PLATFORM</p>
-        <h2>Cloud <span>Operations</span></h2>
-        <p class="section-description">
-          Manage application tasks through a simple interactive interface while
-          learning the same deployment lifecycle used in cloud engineering
-          environments.
-        </p>
-        <div class="cards">
-          <article class="card">
-            <div class="icon">☁️</div>
-            <h3>Azure Ready</h3>
-            <p>
-              Designed for Azure App Service and production-style deployment
-              workflows.
-            </p>
-          </article>
-          <article class="card">
-            <div class="icon">⚙️</div>
-            <h3>Automation</h3>
-            <p>
-              Prepared for GitHub Actions CI/CD, automated tests and deployment.
-            </p>
-          </article>
-          <article class="card">
-            <div class="icon">📊</div>
-            <h3>Observability</h3>
-            <p>
-              Health endpoints and monitoring concepts for reliable cloud
-              operations.
-            </p>
-          </article>
-          <article class="card">
-            <div class="icon">📱</div>
-            <h3>Responsive</h3>
-            <p>
-              Interactive layout adapts across desktop, tablet and mobile
-              devices.
-            </p>
-          </article>
-        </div>
-      </section>
-      <<section class="services" id="services">
-  <p class="section-label">SERVICES</p>
-
-  <h2>Application <span>Capabilities</span></h2>
-
-  <p class="section-description">
-    Explore the cloud, backend and frontend capabilities powering CloudForge.
-    Click any capability to view its technical implementation.
-  </p>
-
-  <div class="cards capability-cards">
-
-    <article
-      class="card capability-card"
-      data-capability="deployments"
-      tabindex="0"
-      role="button"
-      aria-label="Open Azure Deployments"
-    >
-      <div class="icon">🚀</div>
-
-      <h3>Deployments</h3>
-
-      <p>
-        Azure App Service, AKS, Docker, Azure Container Registry and
-        automated CI/CD deployment workflows.
-      </p>
-
-      <span class="capability-link">
-        Explore deployment →
-      </span>
-    </article>
-
-
-    <article
-      class="card capability-card"
-      data-capability="health"
-      tabindex="0"
-      role="button"
-      aria-label="Open Health Checks"
-    >
-      <div class="icon">❤️</div>
-
-      <h3>Health Checks</h3>
-
-      <p>
-        Application health endpoints, Kubernetes probes, availability
-        monitoring and Azure health verification.
-      </p>
-
-      <span class="capability-link">
-        Explore health checks →
-      </span>
-    </article>
-
-
-    <article
-      class="card capability-card"
-      data-capability="api"
-      tabindex="0"
-      role="button"
-      aria-label="Open API Layer"
-    >
-      <div class="icon">🔐</div>
-
-      <h3>API Layer</h3>
-
-      <p>
-        Express REST APIs connecting the CloudForge frontend with the
-        Node.js backend and task services.
-      </p>
-
-      <span class="capability-link">
-        Explore API layer →
-      </span>
-    </article>
-
-
-    <article
-      class="card capability-card"
-      data-capability="ui"
-      tabindex="0"
-      role="button"
-      aria-label="Open Fast UI"
-    >
-      <div class="icon">⚡</div>
-
-      <h3>Fast UI</h3>
-
-      <p>
-        Lightweight JavaScript, responsive design, dynamic rendering and
-        interactive frontend experiences.
-      </p>
-
-      <span class="capability-link">
-        Explore frontend →
-      </span>
-    </article>
-
-
-    <article
-      class="card capability-card"
-      data-capability="observability"
-      tabindex="0"
-      role="button"
-      aria-label="Open Observability"
-    >
-      <div class="icon">📊</div>
-
-      <h3>Observability</h3>
-
-      <p>
-        Azure Monitor, Application Insights, application logs, metrics,
-        alerts and cloud infrastructure visibility.
-      </p>
-
-      <span class="capability-link">
-        Explore monitoring →
-      </span>
-    </article>
-
-  </div>
-
-
-  <!-- CAPABILITY DETAIL PANEL -->
-
-  <div
-    id="capability-panel"
-    class="capability-panel"
-    aria-hidden="true"
-  >
-
-    <div class="capability-panel-content">
-
-      <button
-        id="capability-close"
-        class="capability-close"
-        type="button"
-        aria-label="Close capability details"
-      >
-        ✕
-      </button>
-
-      <div class="capability-panel-header">
-
-        <div
-          id="capability-icon"
-          class="capability-panel-icon"
-        >
-          🚀
-        </div>
-
-        <div>
-          <p class="section-label">
-            CLOUDFORGE CAPABILITY
-          </p>
-
-          <h3 id="capability-title">
-            Azure Deployments
-          </h3>
-
-          <p id="capability-summary">
-            Cloud deployment capabilities.
-          </p>
-        </div>
-
       </div>
 
-
       <div
-        id="capability-technologies"
-        class="capability-technologies"
-      ></div>
+        class="cf-mobile-menu"
+        id="mobileNavMenu"
+        hidden
+      >
+        <a
+          href="#home"
+          class="cf-mobile-link active"
+          data-section="home"
+        >
+          Overview
+        </a>
 
+        <a
+          href="#services"
+          class="cf-mobile-link"
+          data-section="services"
+        >
+          Services
+        </a>
 
-      <div
-        id="capability-sections"
-        class="capability-detail-grid"
-      ></div>
+        <a
+          href="#pipeline"
+          class="cf-mobile-link"
+          data-section="pipeline"
+        >
+          Pipeline
+        </a>
 
-    </div>
+        <a
+          href="#tasks"
+          class="cf-mobile-link"
+          data-section="tasks"
+        >
+          Tasks
+        </a>
 
-  </div>
+        <a
+          href="#contact"
+          class="cf-mobile-link"
+          data-section="contact"
+        >
+          Contact
+        </a>
 
-</section>
-      <section class="pipeline" id="pipeline">
-        <p class="section-label">DELIVERY</p>
-        <h2>DevOps <span>Pipeline</span></h2>
-        <p class="section-description">
-          A production-style path from source code to a monitored Azure
-          application.
-        </p>
-        <div class="pipeline-container">
-          <div class="step">
-            <div class="step-number">01</div>
-            <h3>Code</h3>
-            <p>GitHub source control</p>
-          </div>
-          <div class="arrow">→</div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <h3>Build</h3>
-            <p>Node.js validation</p>
-          </div>
-          <div class="arrow">→</div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <h3>Deploy</h3>
-            <p>Azure App Service</p>
-          </div>
-          <div class="arrow">→</div>
-          <div class="step">
-            <div class="step-number">04</div>
-            <h3>Monitor</h3>
-            <p>Insights &amp; health</p>
-          </div>
+        <div class="cf-mobile-status">
+          <span class="cf-status-dot"></span>
+          System operational
         </div>
-      </section>
-      <section class="task-section" id="tasks">
-        <p class="section-label">INTERACTIVE DEMO</p>
-        <h2>CloudOps <span>TaskHub</span></h2>
-        <p class="section-description">
-          Create, complete, filter and delete tasks using the live Node.js REST
-          API.
-        </p>
-        <div class="task-panel">
-          <form id="task-form" class="task-form">
-            <input
-              id="task-input"
-              type="text"
-              placeholder="Add an operations task..."
-              maxlength="100"
-              required
-            /><button class="btn primary" type="submit">Add Task</button>
-          </form>
-          <div class="task-toolbar">
-            <div class="filters">
-              <button class="filter active" data-filter="all">All</button
-              ><button class="filter" data-filter="active">Active</button
-              ><button class="filter" data-filter="completed">Completed</button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ===================================================
+           HERO
+           =================================================== -->
+
+      <section
+        class="cf-hero"
+        id="home"
+      >
+        <div class="cf-container cf-hero-grid">
+          <div class="cf-hero-content">
+            <div class="cf-eyebrow">
+              <span class="cf-eyebrow-line"></span>
+              CLOUD OPERATIONS PLATFORM
             </div>
-            <button id="health-btn" class="health-btn">Check API</button>
+
+            <h1>
+              Engineer.
+              <span>Automate.</span>
+              Operate.
+            </h1>
+
+            <p class="cf-hero-description">
+              CloudForge is an interactive cloud engineering
+              platform demonstrating modern application delivery,
+              Azure infrastructure, CI/CD automation and
+              operational workflows.
+            </p>
+
+            <div class="cf-hero-meta">
+              <span>NODE.JS</span>
+              <span>AZURE</span>
+              <span>CI/CD</span>
+              <span>OBSERVABILITY</span>
+            </div>
+
+            <div class="cf-hero-actions">
+              <a
+                class="cf-primary-button"
+                href="#services"
+              >
+                Explore Platform
+                <span>→</span>
+              </a>
+
+              <a
+                class="cf-secondary-button"
+                href="#pipeline"
+              >
+                View Pipeline
+              </a>
+            </div>
           </div>
-          <div id="health-status" class="health-status">
-            API status: not checked
+
+          <div class="cf-system-panel">
+            <div class="cf-panel-header">
+              <span class="cf-panel-label">
+                PLATFORM STATUS
+              </span>
+
+              <span class="cf-live-indicator">
+                <i></i>
+                LIVE
+              </span>
+            </div>
+
+            <div class="cf-status-list">
+              <div class="cf-status-row">
+                <div class="cf-status-name">
+                  <span class="cf-status-icon">01</span>
+                  Application
+                </div>
+
+                <div class="cf-status-value">
+                  Operational
+                  <i></i>
+                </div>
+              </div>
+
+              <div class="cf-status-row">
+                <div class="cf-status-name">
+                  <span class="cf-status-icon">02</span>
+                  API Layer
+                </div>
+
+                <div class="cf-status-value">
+                  Connected
+                  <i></i>
+                </div>
+              </div>
+
+              <div class="cf-status-row">
+                <div class="cf-status-name">
+                  <span class="cf-status-icon">03</span>
+                  Deployment
+                </div>
+
+                <div class="cf-status-value">
+                  Ready
+                  <i></i>
+                </div>
+              </div>
+
+              <div class="cf-status-row">
+                <div class="cf-status-name">
+                  <span class="cf-status-icon">04</span>
+                  Monitoring
+                </div>
+
+                <div class="cf-status-value">
+                  Online
+                  <i></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cf-panel-footer">
+              <div>
+                <span>ENV</span>
+                <strong>AZURE</strong>
+              </div>
+
+              <div>
+                <span>RUNTIME</span>
+                <strong>NODE 22</strong>
+              </div>
+
+              <div>
+                <span>STATUS</span>
+                <strong>HEALTHY</strong>
+              </div>
+            </div>
           </div>
-          <div id="task-list" class="task-list"></div>
+        </div>
+
+        <a
+          class="cf-scroll-indicator"
+          href="#services"
+          aria-label="Scroll to services"
+        >
+          <span>SCROLL TO EXPLORE</span>
+          <span class="cf-scroll-arrow">↓</span>
+        </a>
+      </section>
+
+      <!-- ===================================================
+           SERVICES
+           =================================================== -->
+
+      <section
+        class="cf-services-section"
+        id="services"
+      >
+        <div class="cf-container">
+          <div class="cf-section-header">
+            <div>
+              <span class="cf-eyebrow">
+                PLATFORM CAPABILITIES
+              </span>
+
+              <h2>
+                Infrastructure built
+                <span>for operation.</span>
+              </h2>
+
+              <p>
+                Explore the engineering capabilities that
+                make CloudForge production-ready.
+              </p>
+            </div>
+
+            <div class="cf-section-meta">
+              <span>API CONNECTED</span>
+              <span class="cf-meta-divider"></span>
+              <span>5 CAPABILITIES</span>
+            </div>
+          </div>
+
+          <div class="cf-services-layout">
+            <div class="cf-service-list">
+              <button
+                class="cf-service-item active"
+                type="button"
+                data-capability="deployments"
+              >
+                <span class="cf-service-number">01</span>
+
+                <span class="cf-service-main">
+                  Azure Deployments
+                </span>
+
+                <span class="cf-service-arrow">→</span>
+              </button>
+
+              <button
+                class="cf-service-item"
+                type="button"
+                data-capability="health"
+              >
+                <span class="cf-service-number">02</span>
+
+                <span class="cf-service-main">
+                  Health Checks
+                </span>
+
+                <span class="cf-service-arrow">→</span>
+              </button>
+
+              <button
+                class="cf-service-item"
+                type="button"
+                data-capability="api"
+              >
+                <span class="cf-service-number">03</span>
+
+                <span class="cf-service-main">
+                  API Layer
+                </span>
+
+                <span class="cf-service-arrow">→</span>
+              </button>
+
+              <button
+                class="cf-service-item"
+                type="button"
+                data-capability="ui"
+              >
+                <span class="cf-service-number">04</span>
+
+                <span class="cf-service-main">
+                  Fast UI
+                </span>
+
+                <span class="cf-service-arrow">→</span>
+              </button>
+
+              <button
+                class="cf-service-item"
+                type="button"
+                data-capability="observability"
+              >
+                <span class="cf-service-number">05</span>
+
+                <span class="cf-service-main">
+                  Observability
+                </span>
+
+                <span class="cf-service-arrow">→</span>
+              </button>
+            </div>
+
+            <div
+              class="cf-service-detail"
+              id="capabilityDetail"
+            >
+              <div class="cf-detail-top">
+                <div>
+                  <span class="cf-detail-label">
+                    CAPABILITY
+                  </span>
+
+                  <h3 id="serviceDetailTitle">
+                    Loading capability...
+                  </h3>
+
+                  <p id="serviceDetailSummary">
+                    Loading platform information.
+                  </p>
+                </div>
+
+                <span class="cf-detail-status">
+                  <i></i>
+                  READY
+                </span>
+              </div>
+
+              <div class="cf-detail-divider"></div>
+
+              <div class="cf-detail-content">
+                <div class="cf-detail-block">
+                  <span class="cf-detail-block-label">
+                    TECHNOLOGIES
+                  </span>
+
+                  <div
+                    class="cf-tech-list"
+                    id="serviceTechnologies"
+                  ></div>
+                </div>
+
+                <div class="cf-detail-block">
+                  <span class="cf-detail-block-label">
+                    ENGINEERING
+                  </span>
+
+                  <ul
+                    class="cf-detail-list"
+                    id="serviceEngineering"
+                  ></ul>
+                </div>
+              </div>
+
+              <button
+                class="cf-primary-button cf-detail-action"
+                id="openCapabilityDetail"
+                type="button"
+              >
+                Explore capability
+                <span>↗</span>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
-      <section class="contact" id="contact">
-        <p class="section-label">CLOUD READY</p>
-        <h2>Deploy to <span>Azure</span></h2>
-        <p>
-          This application is ready for the next stages: Azure App Service, DNS,
-          HTTPS, CI/CD and monitoring.
-        </p>
-        <a class="btn primary" href="#home">Back to Top</a>
+
+      <!-- ===================================================
+           PIPELINE
+           =================================================== -->
+
+      <section
+        class="cf-pipeline-section"
+        id="pipeline"
+      >
+        <div class="cf-container">
+          <div class="cf-section-header">
+            <div>
+              <span class="cf-eyebrow">
+                DELIVERY ENGINE
+              </span>
+
+              <h2>
+                From commit
+                <span>to production.</span>
+              </h2>
+
+              <p>
+                A simplified view of how application changes
+                move through a modern cloud delivery pipeline.
+              </p>
+            </div>
+
+            <div class="cf-section-meta">
+              <span>CI/CD</span>
+              <span class="cf-meta-divider"></span>
+              <span>4 STAGES</span>
+            </div>
+          </div>
+
+          <div class="cf-pipeline">
+            <article
+              class="cf-pipeline-card cf-pipeline-interactive"
+              data-pipeline="source"
+              tabindex="0"
+              role="button"
+              aria-label="View Source pipeline stage"
+            >
+              <div class="cf-pipeline-card-header">
+                <div>
+                  <span class="cf-pipeline-stage">
+                    01 / SOURCE
+                  </span>
+
+                  <h3>Code Commit</h3>
+                </div>
+
+                <span class="cf-pipeline-status">
+                  <i></i>
+                  READY
+                </span>
+              </div>
+
+              <p>
+                Source changes are committed to Git and pushed
+                to the central repository.
+              </p>
+
+              <div class="cf-pipeline-tech">
+                <span>Git</span>
+                <span>GitHub</span>
+              </div>
+
+              <div class="cf-pipeline-footer">
+                <span>TRIGGER</span>
+                <strong>GIT PUSH</strong>
+              </div>
+            </article>
+
+            <div class="cf-pipeline-connector">
+              <span>→</span>
+            </div>
+
+            <article
+              class="cf-pipeline-card cf-pipeline-interactive"
+              data-pipeline="build"
+              tabindex="0"
+              role="button"
+              aria-label="View Build pipeline stage"
+            >
+              <div class="cf-pipeline-card-header">
+                <div>
+                  <span class="cf-pipeline-stage">
+                    02 / BUILD
+                  </span>
+
+                  <h3>Application Build</h3>
+                </div>
+
+                <span class="cf-pipeline-status">
+                  <i></i>
+                  READY
+                </span>
+              </div>
+
+              <p>
+                Dependencies are installed and the Node.js
+                application is validated.
+              </p>
+
+              <div class="cf-pipeline-tech">
+                <span>Node.js 22</span>
+                <span>npm</span>
+              </div>
+
+              <div class="cf-pipeline-footer">
+                <span>PROCESS</span>
+                <strong>BUILD</strong>
+              </div>
+            </article>
+
+            <div class="cf-pipeline-connector">
+              <span>→</span>
+            </div>
+
+            <article
+              class="cf-pipeline-card cf-pipeline-interactive"
+              data-pipeline="verify"
+              tabindex="0"
+              role="button"
+              aria-label="View Verify pipeline stage"
+            >
+              <div class="cf-pipeline-card-header">
+                <div>
+                  <span class="cf-pipeline-stage">
+                    03 / VERIFY
+                  </span>
+
+                  <h3>Quality Checks</h3>
+                </div>
+
+                <span class="cf-pipeline-status">
+                  <i></i>
+                  READY
+                </span>
+              </div>
+
+              <p>
+                Automated validation confirms the application
+                is ready for deployment.
+              </p>
+
+              <div class="cf-pipeline-tech">
+                <span>Tests</span>
+                <span>Lint</span>
+              </div>
+
+              <div class="cf-pipeline-footer">
+                <span>GATE</span>
+                <strong>PASS</strong>
+              </div>
+            </article>
+
+            <div class="cf-pipeline-connector">
+              <span>→</span>
+            </div>
+
+            <article
+              class="cf-pipeline-card cf-pipeline-interactive"
+              data-pipeline="deploy"
+              tabindex="0"
+              role="button"
+              aria-label="View Deploy pipeline stage"
+            >
+              <div class="cf-pipeline-card-header">
+                <div>
+                  <span class="cf-pipeline-stage">
+                    04 / DEPLOY
+                  </span>
+
+                  <h3>Azure Production</h3>
+                </div>
+
+                <span class="cf-pipeline-status">
+                  <i></i>
+                  READY
+                </span>
+              </div>
+
+              <p>
+                The validated application is delivered to
+                Azure App Service through CI/CD.
+              </p>
+
+              <div class="cf-pipeline-tech">
+                <span>Azure</span>
+                <span>App Service</span>
+              </div>
+
+              <div class="cf-pipeline-footer">
+                <span>TARGET</span>
+                <strong>AZURE</strong>
+              </div>
+            </article>
+          </div>
+
+          <div class="cf-pipeline-summary">
+            <div class="cf-pipeline-summary-item">
+              <span class="cf-summary-label">
+                SOURCE
+              </span>
+
+              <strong>GitHub</strong>
+              <small>Version control</small>
+            </div>
+
+            <div class="cf-pipeline-summary-item">
+              <span class="cf-summary-label">
+                AUTOMATION
+              </span>
+
+              <strong>CI/CD</strong>
+              <small>Automated delivery</small>
+            </div>
+
+            <div class="cf-pipeline-summary-item">
+              <span class="cf-summary-label">
+                PLATFORM
+              </span>
+
+              <strong>Azure</strong>
+              <small>Cloud runtime</small>
+            </div>
+
+            <div class="cf-pipeline-summary-item">
+              <span class="cf-summary-label">
+                OBSERVABILITY
+              </span>
+
+              <strong>Monitor</strong>
+              <small>Operational visibility</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           TASK OPERATIONS
+           =================================================== -->
+
+      <section
+        class="cf-operations-section"
+        id="tasks"
+      >
+        <div class="cf-container">
+          <div class="cf-section-header">
+            <div>
+              <span class="cf-eyebrow">
+                OPERATIONS CENTER
+              </span>
+
+              <h2>
+                Manage the
+                <span>work.</span>
+              </h2>
+
+              <p>
+                An interactive operations board powered by
+                the CloudForge REST API.
+              </p>
+            </div>
+
+            <div class="cf-section-meta">
+              <span id="taskSystemStatus">
+                API CONNECTED
+              </span>
+
+              <span class="cf-meta-divider"></span>
+
+              <span id="taskCountLabel">
+                LOADING
+              </span>
+            </div>
+          </div>
+
+          <div class="cf-operations-layout">
+            <div class="cf-task-board">
+              <div class="cf-task-toolbar">
+                <div class="cf-task-toolbar-left">
+                  <span class="cf-toolbar-label">
+                    TASK QUEUE
+                  </span>
+
+                  <div class="cf-task-filters">
+                    <button
+                      class="cf-task-filter active"
+                      type="button"
+                      data-filter="all"
+                    >
+                      All
+                    </button>
+
+                    <button
+                      class="cf-task-filter"
+                      type="button"
+                      data-filter="active"
+                    >
+                      Active
+                    </button>
+
+                    <button
+                      class="cf-task-filter"
+                      type="button"
+                      data-filter="completed"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  class="cf-task-refresh"
+                  id="taskRefresh"
+                  type="button"
+                  aria-label="Refresh tasks"
+                  title="Refresh tasks"
+                >
+                  ↻
+                </button>
+              </div>
+
+              <div
+                class="cf-task-list"
+                id="taskList"
+              ></div>
+
+              <div
+                class="cf-task-empty"
+                id="taskEmptyState"
+                hidden
+              >
+                <div class="cf-empty-icon">
+                  ✓
+                </div>
+
+                <strong>
+                  No tasks found
+                </strong>
+
+                <span>
+                  Create a task or change the active filter.
+                </span>
+              </div>
+            </div>
+
+            <aside class="cf-task-create">
+              <div class="cf-create-header">
+                <div>
+                  <span class="cf-detail-label">
+                    NEW OPERATION
+                  </span>
+
+                  <h3>
+                    Create task
+                  </h3>
+                </div>
+
+                <span class="cf-create-icon">
+                  +
+                </span>
+              </div>
+
+              <form
+                class="cf-task-form"
+                id="taskForm"
+              >
+                <label for="taskTitle">
+                  Task title
+                </label>
+
+                <input
+                  id="taskTitle"
+                  name="title"
+                  type="text"
+                  placeholder="e.g. Configure Azure Monitor"
+                  maxlength="120"
+                  required
+                />
+
+                <label for="taskPriority">
+                  Priority
+                </label>
+
+                <select
+                  id="taskPriority"
+                  name="priority"
+                >
+                  <option value="normal">
+                    Normal
+                  </option>
+
+                  <option value="high">
+                    High
+                  </option>
+
+                  <option value="critical">
+                    Critical
+                  </option>
+                </select>
+
+                <button
+                  class="cf-primary-button cf-create-task-button"
+                  type="submit"
+                >
+                  Create task
+                  <span>→</span>
+                </button>
+              </form>
+
+              <div class="cf-create-note">
+                <span class="cf-note-indicator"></span>
+
+                <p>
+                  Tasks are stored through the CloudForge
+                  REST API during the current application
+                  session.
+                </p>
+              </div>
+            </aside>
+          </div>
+
+          <div class="cf-operation-metrics">
+            <div class="cf-operation-metric">
+              <span class="cf-metric-label">
+                TOTAL TASKS
+              </span>
+
+              <strong id="totalTaskCount">
+                —
+              </strong>
+
+              <small>
+                Registered
+              </small>
+            </div>
+
+            <div class="cf-operation-metric">
+              <span class="cf-metric-label">
+                ACTIVE
+              </span>
+
+              <strong id="activeTaskCount">
+                —
+              </strong>
+
+              <small>
+                In progress
+              </small>
+            </div>
+
+            <div class="cf-operation-metric">
+              <span class="cf-metric-label">
+                COMPLETED
+              </span>
+
+              <strong id="completedTaskCount">
+                —
+              </strong>
+
+              <small>
+                Finished
+              </small>
+            </div>
+
+            <div class="cf-operation-metric">
+              <span class="cf-metric-label">
+                COMPLETION
+              </span>
+
+              <strong id="taskCompletionRate">
+                —
+              </strong>
+
+              <small>
+                Current rate
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           CONTACT
+           =================================================== -->
+
+      <section
+        class="cf-contact-section"
+        id="contact"
+      >
+        <div class="cf-container">
+          <div class="cf-section-header">
+            <div>
+              <span class="cf-eyebrow">
+                CONNECT
+              </span>
+
+              <h2>
+                Let's build
+                <span>reliable systems.</span>
+              </h2>
+
+              <p>
+                Cloud engineering, automation and operational
+                excellence are built through continuous learning.
+              </p>
+            </div>
+
+            <div class="cf-section-meta">
+              <span>AVAILABLE</span>
+              <span class="cf-meta-divider"></span>
+              <span>HYDERABAD / INDIA</span>
+            </div>
+          </div>
+
+          <div class="cf-contact-layout">
+            <div class="cf-contact-panel">
+              <div class="cf-contact-panel-header">
+                <div>
+                  <span class="cf-detail-label">
+                    CONTACT
+                  </span>
+
+                  <h3>
+                    Get in touch
+                  </h3>
+                </div>
+
+                <span class="cf-contact-status">
+                  <i></i>
+                  OPEN
+                </span>
+              </div>
+
+              <div class="cf-contact-list">
+                <a
+                  class="cf-contact-row"
+                  href="mailto:zahed.h.shaik@gmail.com"
+                >
+                  <span class="cf-contact-icon">
+                    @
+                  </span>
+
+                  <span class="cf-contact-content">
+                    <span>EMAIL</span>
+                    <strong>
+                      zahed.h.shaik@gmail.com
+                    </strong>
+                  </span>
+
+                  <span class="cf-contact-arrow">
+                    ↗
+                  </span>
+                </a>
+
+                <a
+                  class="cf-contact-row"
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="cf-contact-icon">
+                    GH
+                  </span>
+
+                  <span class="cf-contact-content">
+                    <span>GITHUB</span>
+                    <strong>
+                      GitHub Profile
+                    </strong>
+                  </span>
+
+                  <span class="cf-contact-arrow">
+                    ↗
+                  </span>
+                </a>
+
+                <a
+                  class="cf-contact-row"
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="cf-contact-icon">
+                    IN
+                  </span>
+
+                  <span class="cf-contact-content">
+                    <span>LINKEDIN</span>
+                    <strong>
+                      LinkedIn Profile
+                    </strong>
+                  </span>
+
+                  <span class="cf-contact-arrow">
+                    ↗
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div class="cf-contact-panel">
+              <div class="cf-contact-panel-header">
+                <div>
+                  <span class="cf-detail-label">
+                    ENGINEERING FOCUS
+                  </span>
+
+                  <h3>
+                    Cloud & DevOps
+                  </h3>
+                </div>
+
+                <span class="cf-terminal-mark">
+                  &gt;_
+                </span>
+              </div>
+
+              <div class="cf-profile-list">
+                <div class="cf-profile-row">
+                  <span class="cf-profile-mark">
+                    01
+                  </span>
+
+                  <span class="cf-profile-content">
+                    Azure Cloud Engineering
+                  </span>
+
+                  <span class="cf-profile-arrow">
+                    →
+                  </span>
+                </div>
+
+                <div class="cf-profile-row">
+                  <span class="cf-profile-mark">
+                    02
+                  </span>
+
+                  <span class="cf-profile-content">
+                    CI/CD Automation
+                  </span>
+
+                  <span class="cf-profile-arrow">
+                    →
+                  </span>
+                </div>
+
+                <div class="cf-profile-row">
+                  <span class="cf-profile-mark">
+                    03
+                  </span>
+
+                  <span class="cf-profile-content">
+                    Infrastructure & Containers
+                  </span>
+
+                  <span class="cf-profile-arrow">
+                    →
+                  </span>
+                </div>
+
+                <div class="cf-profile-row">
+                  <span class="cf-profile-mark">
+                    04
+                  </span>
+
+                  <span class="cf-profile-content">
+                    Observability & Reliability
+                  </span>
+
+                  <span class="cf-profile-arrow">
+                    →
+                  </span>
+                </div>
+              </div>
+
+              <div class="cf-contact-note">
+                <span class="cf-note-indicator"></span>
+
+                <p>
+                  Building practical cloud engineering
+                  experience through hands-on projects.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
-    <footer>
-      <span>CloudOps TaskHub</span><span>Node.js • Express • Azure DevOps</span>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="cf-footer">
+      <div class="cf-container cf-footer-inner">
+        <div class="cf-footer-brand">
+          <span class="cf-footer-mark">
+            CF
+          </span>
+
+          <span>
+            CloudForge
+          </span>
+        </div>
+
+        <div class="cf-footer-status">
+          <span class="cf-footer-status-dot"></span>
+          Platform operational
+        </div>
+
+        <div class="cf-footer-meta">
+          Node.js · Azure · DevOps
+        </div>
+      </div>
     </footer>
-    <script src="/js/app.js"></script>
   </body>
 </html>
