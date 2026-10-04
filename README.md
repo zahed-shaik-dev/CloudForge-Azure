@@ -1,25 +1,83 @@
-# CloudForge 
+# ☁️ CloudForge
 
-Interactive responsive Node.js + Express application designed as an Azure DevOps learning and portfolio project.
+**CloudForge** is a Node.js cloud engineering application deployed on **Microsoft Azure** using a secure automated **GitHub Actions CI/CD pipeline**.
 
-## Features
+The project demonstrates practical DevOps workflows including application validation, Azure deployment, OIDC authentication, and Azure App Service hosting.
 
-- Responsive desktop, tablet and mobile UI
-- Interactive task management
-- REST API for create, update, delete and list operations
-- API health endpoint
-- DevOps pipeline visualization
-- Docker-ready production image
-- Prepared for Azure App Service, custom DNS, HTTPS, GitHub Actions and Application Insights
+## 🚀 Tech Stack
 
-## Endpoints
+* Node.js 22
+* Express.js
+* Azure App Service
+* GitHub Actions
+* Microsoft Entra ID
+* GitHub OIDC
+* Azure RBAC
+* Docker
 
-- GET /api/health
-- GET /api/tasks
-- POST /api/tasks
-- PATCH /api/tasks/:id
-- DELETE /api/tasks/:id
+## 🔄 CI/CD Pipeline
 
-## Technology
+```text
+GitHub
+   ↓
+GitHub Actions
+   ↓
+npm install → Lint → Test
+   ↓
+OIDC Authentication
+   ↓
+Azure App Service
+   ↓
+CloudForge
+```
 
-Node.js 22, Express.js, HTML5, CSS3, JavaScript and Docker.
+Every push to the `master` branch automatically validates and deploys the application to Azure.
+
+## 🔐 Security
+
+CloudForge uses **GitHub OIDC + Microsoft Entra ID** instead of storing Azure passwords or publish profiles in GitHub.
+
+Deployment access is controlled using **Azure RBAC** and scoped to the CloudForge App Service.
+
+## ☁️ Azure
+
+* Azure App Service for application hosting
+* Microsoft Entra ID for workload identity
+* Federated credentials for GitHub Actions
+* Azure RBAC for deployment permissions
+
+## 📡 API
+
+Health endpoint:
+
+```text
+GET /api/health
+```
+
+Task API:
+
+```text
+GET    /api/tasks
+POST   /api/tasks
+PATCH  /api/tasks/:id
+DELETE /api/tasks/:id
+```
+
+## 🐳 Docker
+
+CloudForge includes a production-oriented Dockerfile using **Node.js Alpine** and a non-root container user.
+
+## 🎯 Project Goal
+
+The project is being developed as a practical **Azure DevOps learning and portfolio project**, with future expansion into:
+
+* Application Insights
+* Azure Monitor
+* Terraform / Bicep
+* Azure Container Registry
+* Managed Identity
+* Monitoring and alerts
+
+---
+
+**Built by Zahed Hussain Shaik — Aspiring DevOps / Cloud Engineer**
