@@ -3948,3 +3948,65 @@ select,
     transform: none;
   }
 }
+
+/* =========================================================
+   FOOTER — CLOUDFORGE BRAND MARK
+   ========================================================= */
+
+.cf-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cf-footer-mark {
+  display: grid;
+
+  width: 36px;
+  height: 36px;
+
+  place-items: center;
+
+  color: var(--cf-primary);
+
+  background: rgba(79, 140, 255, 0.08);
+
+  border: 1px solid rgba(79, 140, 255, 0.24);
+  border-radius: var(--cf-radius-sm);
+
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.cf-footer-mark svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cf-footer-brand:hover .cf-footer-mark {
+  color: var(--cf-primary-hover);
+
+  background: rgba(79, 140, 255, 0.13);
+
+  border-color: rgba(79, 140, 255, 0.4);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px rgba(79, 140, 255, 0.12);
+}
+
+.cf-footer-brand strong {
+  display: block;
+
+  color: var(--cf-text);
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
